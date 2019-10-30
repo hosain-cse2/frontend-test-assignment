@@ -28,16 +28,16 @@ What more could be done
 
 
 
-Task 2 - Integrate an API
--------------------------
+Task 2 - Integrate an API (Solution)
+------------------------------------
 
 1. Removed the cones.json file to get the data, instead use the api call http://localhost:3000/api/cones to get the data when the app.js component is loaded. In this case we do not have to call the api every time we change the risk level or initial sum. And pass the data via the context. Moved the api call to a separate file api.js.
 
 
 
 
-Task 3 - Add a new feature
---------------------------
+Task 3 - Add a new feature (Solution)
+-------------------------------------
 
 1. Added InitialSumInput.js to add the flexibility so that the user can also input initialSum. Also added some check for the input field like input can not be blank or non numaric.
 
