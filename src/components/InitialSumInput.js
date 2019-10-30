@@ -6,7 +6,10 @@ export default class InitialSumInput extends React.Component {
     }
 
     onInitialSumSubmit = () => {
-        if (this.props.onInitialSumChanged && event.keyCode === 13) {
+        const reg = /^\d+$/;
+        const isPositiveNumber = this.state.initialSum && this.state.initialSum >= 0 && reg.test(this.state.initialSum);
+
+        if (this.props.onInitialSumChanged && event.keyCode === 13 && isPositiveNumber) {
             this.props.onInitialSumChanged(this.state.initialSum);
         }
     }
@@ -18,15 +21,14 @@ export default class InitialSumInput extends React.Component {
     render() {
         return (
             <div>
-                <span>
-                    Initial sum:
-                </span>
+                Initial sum:
                 <span>
                     <input
                         onKeyPress={this.onInitialSumSubmit}
                         onChange={this.onInitialSumChanged}
                         value={this.state.initialSum}
                         type="number"
+                        min="0"
                     />
                 </span>
             </div>

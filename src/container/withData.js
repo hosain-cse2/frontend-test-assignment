@@ -1,5 +1,6 @@
 import React from "react";
 import ConeContext from "../utils/coneContext";
+import { getTimeSeriesData } from "../utils/utils";
 
 export default function withData(DecoratedComponent) {
 
@@ -15,9 +16,11 @@ export default function withData(DecoratedComponent) {
                     {
                         context => {
                             const cone = context.cones.find(cone => this.props.riskLevel === cone.riskLevel);
-                            return cone ?
-                                <DecoratedComponent {...this.props} cone={cone} /> :
-                                null;
+                            if (cone) {
+                                const {dataMedian, dataGood, dataBad} = getTimeSeriesData(cone, this.props.initialSum);
+                                return <DecoratedComponent {...this.props} dataMedian={dataMedian} dataGood={dataGood} dataBad={dataBad} />;
+                            }
+                            return null;
                         }
                     }
                 </ConeContext.Consumer>

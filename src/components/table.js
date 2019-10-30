@@ -1,11 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { getTimeSeriesData } from "../utils/utils";
 import withData from "../container/withData";
 
 class Table extends React.PureComponent {
     render() {
-        const {dataMedian, dataGood, dataBad} = getTimeSeriesData(this.props.cone, this.props.initialSum);
+        const {dataMedian, dataGood, dataBad} = this.props;
         const months = dataMedian.map((v, idx) => idx);
 
         const rows = months.map((entry, idx) => (
@@ -18,10 +17,10 @@ class Table extends React.PureComponent {
         ));
 
         const tableHeader = React.createElement("tr", {}, [
-            React.createElement("th", {key: "month"}, "month"),
-            React.createElement("th", {key: "good"}, "good"),
-            React.createElement("th", {key: "median"}, "median"),
-            React.createElement("th", {key: "bad"}, "bad")
+            React.createElement("th", {key: "month"}, "Month"),
+            React.createElement("th", {key: "good"}, "Good performance"),
+            React.createElement("th", {key: "median"}, "Median performance"),
+            React.createElement("th", {key: "bad"}, "Bad performance")
         ]);
 
         return (

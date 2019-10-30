@@ -1,4 +1,4 @@
-import {getTimeSeriesData} from "../utils/utils";
+import {getTimeSeriesData} from "./utils";
 
 describe("Utils: ", () => {
     const cone = {"riskLevel": 5, "mu": 0.0283, "sigma": 0.028};

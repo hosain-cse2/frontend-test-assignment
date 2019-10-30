@@ -14,7 +14,7 @@ function mapDate({ t, mu, sigma, fee, initialSum, monthlySum }) {
     };
 }
 
-const calculateTimeSeries = ({ years, mu, sigma, fee, initialSum, monthlySum }) => {
+function calculateTimeSeries({ years, mu, sigma, fee, initialSum, monthlySum }) {
 
     const series = [];
     for (let k = 0; k <= 12 * years; ++k) {
@@ -34,9 +34,9 @@ const calculateTimeSeries = ({ years, mu, sigma, fee, initialSum, monthlySum }) 
     }
 
     return allSeries;
-};
+}
 
-const getTimeSeriesData = (cone, initialSum) => {
+function getTimeSeriesData(cone, initialSum) {
     initialSum = initialSum ? initialSum : constants.initialSum;
     const {mu, sigma} = cone;
     const fee = 0.01;
@@ -44,9 +44,9 @@ const getTimeSeriesData = (cone, initialSum) => {
     const timeSeries = calculateTimeSeries({
         mu,
         sigma,
-        years: 10,
+        years: constants.totalYearsForTimeSeries,
         initialSum: initialSum,
-        monthlySum: 200,
+        monthlySum: constants.monthlySum,
         fee
     });
 
@@ -55,6 +55,6 @@ const getTimeSeriesData = (cone, initialSum) => {
     const dataBad = timeSeries.lower05.map(v => v.y);
 
     return {dataMedian, dataGood, dataBad};
-};
+}
 
 export {getTimeSeriesData};

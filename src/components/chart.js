@@ -1,6 +1,5 @@
 import React from "react";
 import {Chart as ChartJs} from "chart.js";
-import {getTimeSeriesData} from "../utils/utils";
 import withData from "../container/withData";
 
 class Chart extends React.Component {
@@ -10,7 +9,7 @@ class Chart extends React.Component {
     }
 
     drawChart() {
-        const {dataMedian, dataGood, dataBad} = getTimeSeriesData(this.props.cone, this.props.initialSum);
+        const {dataMedian, dataGood, dataBad} = this.props;
         const labels = dataMedian.map((v, idx) => idx % 12 === 0 ? idx / 12 : "");
         const data = {
             datasets: [
