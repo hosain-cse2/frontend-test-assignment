@@ -4,7 +4,7 @@ Task 1 - Clean up, refactor and write tests (Solution)
 What is done
 ------------
 
-1. Added eslint rule to enforece same kind of coding style all over the app source code.
+1. Added eslint rule e.g. no use of require, var, only use double quotes etc. to enforece same kind of coding style all over the app source code.
 
 2. Rearrange the folder structure
 
