@@ -1,0 +1,204 @@
+{
+  "parser": "babel-eslint",
+
+  "env": {
+      "browser": true,
+      "es6": true,
+      "commonjs": true,
+      "node": true,
+      "jest": true
+  },
+
+  "globals": {
+      "process": false,
+      "PDFJS": false,
+      "describe": true,
+      "it": true,
+      "beforeEach": true,
+      "afterEach": true,
+      "jest": true
+  },
+
+  "parserOptions": {
+      "sourceType": "module",
+      "ecmaVersion": 6,
+      "ecmaFeatures": {
+          "jsx": true
+      }
+  },
+
+  "plugins": [
+      "react",
+      "babel"
+  ],
+
+  "rules": {
+      // Best practices and plain errors
+
+      // enforce getter/setter pairs in objects
+      "accessor-pairs": 2,
+      // enforce return statements in callbacks of array’s methods
+      "array-callback-return": 2,
+      // treat var statements as if they were block scoped
+      "block-scoped-var": 2,
+      // disallow dangling commmas at the end of lists
+      "comma-dangle": [2, "never"],
+      // require curly braces for all control statements
+      "curly": [2, "all"],
+      // require default case in switch statements
+      "default-case": 2,
+      // encourages use of dot notation whenever possible
+      "dot-notation": [2, { "allowKeywords": true}],
+      // disallows creating new instances of String,Number, and Boolean
+      "no-new-wrappers": 2,
+      // disallow the use of alert, confirm, and prompt
+      "no-alert": 2,
+      // require the use of === and !==
+      "eqeqeq": 2,
+      // disallow use of console
+      "no-console": 0,
+      // disallow use of constant expressions in conditions
+      "no-constant-condition": 1,
+      // disallow control characters in regular expressions
+      "no-control-regex": 2,
+      // disallow use of debugger
+      "no-debugger": 1,
+      // disallow duplicate arguments in functions
+      "no-dupe-args": 2,
+      // disallow duplicate name in class members
+      "no-dupe-class-members": 2,
+      // disallow duplicate keys when creating object literals
+      "no-dupe-keys": 2,
+      // disallow a duplicate case label.
+      "no-duplicate-case": 2,
+      // disallow the use of empty character classes in regular expressions
+      "no-empty-character-class": 2,
+      // disallow empty statements
+      "no-empty": 2,
+      // disallow assigning to the exception in a catch block
+      "no-ex-assign": 2,
+      // disallow unnecessary function binding
+      "no-extra-bind": 2,
+      // disallow double-negation boolean casts in a boolean context
+      "no-extra-boolean-cast": 2,
+      // disallow unnecessary parentheses
+      "no-extra-parens": [2, "functions"],
+      // disallow unnecessary semicolons
+      "no-extra-semi": 2,
+      // disallow overwriting functions written as function declarations
+      "no-func-assign": 2,
+      // disallow function or variable declarations in nested blocks
+      "no-inner-declarations": 2,
+      // disallow negation of the left operand of an in expression
+      "no-negated-in-lhs": 2,
+      // disallow the use of object properties of the global object (Math and JSON) as functions
+      "no-obj-calls": 2,
+      // disallow multiple spaces in a regular expression literal
+      "no-regex-spaces": 2,
+      // disallow shadowing of names such as arguments
+      "no-shadow-restricted-names": 2,
+      // disallow declaration of variables already declared in the outer scope
+      //"no-shadow": 2,
+      // disallow sparse arrays
+      "no-sparse-arrays": 2,
+      // disallow use of undeclared variables unless mentioned in a /*global */ block
+      "no-undef": 2,
+      // disallow var and named functions in global scope
+      "no-implicit-globals": 2,
+      // disallow unreachable statements after a return, throw, continue, or break statement
+      "no-unreachable": 2,
+      // disallow use of variables before they are defined
+      "no-use-before-define": [2, "nofunc"],
+      // disallow comparisons with the value NaN
+      "use-isnan": 2,
+      // disallow declaration of variables that are not used in the code
+      "no-unused-vars": [2, {"vars": "local", "args": "after-used"}],
+      // disallow modifying variables that are declared using const
+      "no-const-assign": 2,
+      // disallow to use this/super before super() calling in constructors.
+      "no-this-before-super": 2,
+      // require let or const instead of var
+      "no-var": 2,
+      // disallow variable redeclaration
+      "no-redeclare": 2,
+      // require return statements to either always or never specify values
+      "consistent-return": 2,
+      // suggest using of const declaration for variables that are never modified after declared
+      "prefer-const": 2,
+      // babel inserts `'use strict';` for us
+      "strict": [1, "never"],
+      // ensure results of typeof are compared against a valid string
+      "valid-typeof": 2,
+      // disallow labeled statements
+      "no-labels": 2,
+
+
+      // jsx/react specific rules
+      "react/jsx-no-undef": 2,
+      "react/jsx-uses-react": 2,
+      "react/jsx-uses-vars": 2,
+      "react/jsx-no-duplicate-props": 2,
+      "react/no-direct-mutation-state": 2,
+      // Disabled for now until thorough cleanup of source code
+      //"react/jsx-no-bind": 1,
+      "react/no-did-mount-set-state": 2,
+      "react/no-did-update-set-state": 2,
+      "react/no-children-prop": 2,
+      "react/jsx-indent": 1,
+      "react/jsx-indent-props": 1,
+      "react/jsx-first-prop-new-line": [1, "multiline-multiprop"],
+      "react/jsx-tag-spacing": 1,
+      "react/jsx-wrap-multilines": 1,
+      "react/jsx-closing-bracket-location": 1,
+      "react/jsx-equals-spacing": 1,
+
+
+      // Code style rules from here
+      // brace-style
+      "brace-style": [2, "1tbs", {"allowSingleLine": true}],
+      // don't allow multiple spaces
+      "no-multi-spaces": 2,
+      // no trailing spaces at the end of lines
+      "no-trailing-spaces": 2,
+      // indent with 4 spaces
+      "indent": [2, 4, {"SwitchCase": 1}],
+      // enforce consistent spacing between keys and values in object literal properties
+      "key-spacing": 2,
+      // enforces spacing around commas
+      "comma-spacing": 2,
+      // only allow double quotes
+      "quotes": [2, "double"],
+      // disallow single quotes in JSX attributes
+      "jsx-quotes": [2, "prefer-double"],
+      // require camel case names
+      "camelcase": [2, {"properties": "always"}],
+      // enforce newline at the end of file, with no multiple empty lines
+      "eol-last": 0,
+      // require a capital letter for constructors
+      "babel/new-cap": 2,
+      // disallow dangling underscores in identifiers
+      "no-underscore-dangle": 0,
+      // disallow else after a return in an if
+      "no-else-return": 0,
+      // semicolons must be used any place where they are valid
+      "semi": [2, "always"],
+      // require space before/after arrow function’s arrow
+      "arrow-spacing": 2,
+      // keywords must be preceded and followed by a space character
+      "keyword-spacing": 2,
+      // disallow spaces in function calls
+      "no-spaced-func": 2,
+      // disallow whitespace before properties
+      "no-whitespace-before-property": 2,
+      // require space before blocks
+      "space-before-blocks": 2,
+      // disallow a space before function parenthesis
+      "space-before-function-paren": [2, "never"],
+      // require spaces around infix operators
+      "space-infix-ops": 2,
+      // require spaces before/after unary operators
+      "space-unary-ops": 2,
+      // checks for jsdoc validity (disabled for now)
+      "valid-jsdoc": [0, {"requireReturn": false}]
+  }
+}
