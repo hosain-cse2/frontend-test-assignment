@@ -3,11 +3,20 @@ import PropTypes from "prop-types";
 import withData from "../container/withData";
 
 class Table extends React.PureComponent {
-    render() {
+    populateHeader = () => {
+        return React.createElement("tr", {}, [
+            React.createElement("th", {key: "month"}, "Month"),
+            React.createElement("th", {key: "good"}, "Good performance"),
+            React.createElement("th", {key: "median"}, "Median performance"),
+            React.createElement("th", {key: "bad"}, "Bad performance")
+        ]);
+    }
+
+    populateRows = () => {
         const {dataMedian, dataGood, dataBad} = this.props;
         const months = dataMedian.map((v, idx) => idx);
 
-        const rows = months.map((entry, idx) => (
+        return months.map((entry, idx) => (
             <tr key={idx} data-test-id={`time-series-${idx}`}>
                 <td>{entry}</td>
                 <td>{dataGood[idx]}</td>
@@ -15,21 +24,16 @@ class Table extends React.PureComponent {
                 <td>{dataBad[idx]}</td>
             </tr>
         ));
+    }
 
-        const tableHeader = React.createElement("tr", {}, [
-            React.createElement("th", {key: "month"}, "Month"),
-            React.createElement("th", {key: "good"}, "Good performance"),
-            React.createElement("th", {key: "median"}, "Median performance"),
-            React.createElement("th", {key: "bad"}, "Bad performance")
-        ]);
-
+    render() {
         return (
             <table>
                 <thead>
-                    {tableHeader}
+                    {this.populateHeader()}
                 </thead>
                 <tbody>
-                    {rows}
+                    {this.populateRows()}
                 </tbody>
             </table>
         );
